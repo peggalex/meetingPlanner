@@ -1,0 +1,34 @@
+.monthYearContainer {
+	padding: 1rem 0;
+}
+
+.monthYearContainer > * + * {
+	margin-left: 1rem;
+}
+
+.calendarPicker table {
+	background-color: var(--sky50);
+	padding: 0.4rem;
+	border-radius: 10px;
+}
+
+.calendarPicker th div {
+	background-color: var(--slate200);
+	border-radius: 4px;
+	width: 100%;
+	height: 1.5rem;
+}
+
+.calendarPicker th p {
+	color: var(--slate500);
+	text-align: center;
+	font-size: 0.7rem;
+	margin: 0;
+}
+
+.calendarPicker th,
+.calendarPicker td {
+	padding: 0.2rem;
+	user-select: none;
+	width: 2rem;
+}

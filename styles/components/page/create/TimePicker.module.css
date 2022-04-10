@@ -1,0 +1,52 @@
+.timePicker {
+	position: relative;
+	display: inline-block;
+}
+
+.timePicker input[type="time"]::-webkit-inner-spin-button,
+.timePicker input[type="time"]::-webkit-calendar-picker-indicator {
+	display: none;
+	-webkit-appearance: none;
+}
+
+.timePicker input {
+	padding: 0.5rem;
+	background-color: var(--sky50);
+	color: var(--slate600);
+	border-radius: 5px;
+	text-align: center;
+	border: none;
+	font-size: 1.05rem;
+	font-variation-settings: "wght" 700;
+	text-transform: lowercase;
+}
+
+.timePicker input:focus {
+	outline: none;
+	background-color: var(--sky100);
+}
+
+.timePicker h3 {
+	margin: 0;
+	position: absolute;
+	top: -0.65rem;
+	left: 0.5rem;
+	font-size: 0.9rem;
+	color: var(--slate400);
+	font-weight: normal;
+	font-variation-settings: "wght" 600;
+}
+
+.timePicker svg {
+	position: absolute;
+	bottom: -0.25rem;
+	right: -0.25rem;
+	width: 1rem;
+	height: 1rem;
+	color: var(--slate400);
+	stroke-width: 2.5px;
+}
+
+.timePicker + .timePicker {
+	margin-left: 1rem;
+}

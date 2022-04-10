@@ -1,0 +1,31 @@
+.counter {
+	justify-content: space-between;
+	background-color: var(--sky50);
+	padding: 0.25rem;
+	border-radius: 5px;
+}
+
+.counter p {
+	margin: 0 0.5rem;
+	font-variation-settings: "wght" 700;
+	color: var(--slate600);
+	font-size: 1rem;
+}
+
+.counter button {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	color: var(--slate400);
+}
+
+.counter button:disabled {
+	background-color: transparent;
+	border: none;
+	padding: 0;
+	color: var(--slate200);
+}
+
+.counter + .counter {
+	margin-left: 1rem;
+}

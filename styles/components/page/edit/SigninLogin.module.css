@@ -1,0 +1,45 @@
+.signinLogin {
+	position: relative;
+}
+
+.signinLogin[data-loggedin="true"] input[type="text"] {
+	background-color: var(--slate300);
+}
+
+.signinLogin input[type="text"] {
+	border-radius: 5px 0 0 5px;
+	border: none;
+	padding: 0.5rem;
+	padding-left: 0.75rem;
+	background-color: white;
+	font-size: 1.5rem;
+	color: var(--slate600);
+	font-variation-settings: "wght" 600;
+	width: 80%;
+}
+
+.signinLogin input[type="text"]::placeholder {
+	color: var(--slate400);
+	font-style: italic;
+}
+
+.signinLogin input[type="submit"] {
+	border: none;
+	width: 20%;
+	border-radius: 0 5px 5px 0;
+	background-color: var(--sky100);
+	padding: 0.5rem;
+	font-size: 1.5rem;
+}
+
+.signinLoginIconContainer {
+	position: absolute;
+	right: 0;
+	top: 0;
+	padding-top: 5%;
+	padding-left: 4.5%;
+	width: 20%;
+	color: var(--sky500);
+	cursor: pointer;
+	height: 100%;
+}

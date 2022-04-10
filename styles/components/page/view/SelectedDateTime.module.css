@@ -1,0 +1,34 @@
+.selectedTimeContext {
+}
+
+.dateRow {
+	font-size: 1.1rem;
+	margin-bottom: 0.25rem;
+	align-items: baseline;
+}
+
+.dateRow > * + * {
+	margin-left: 0.25rem;
+}
+
+.month,
+.day,
+.daySuffix,
+.bullet {
+	font-variation-settings: "wght" 700;
+	color: var(--slate600);
+}
+.daySuffix {
+	font-size: 0.85rem;
+}
+
+.year {
+	font-variation-settings: "wght" 400;
+	color: var(--slate400);
+}
+
+.time {
+	font-size: 1.75rem;
+	font-variation-settings: "wght" 700;
+	color: var(--slate600);
+}

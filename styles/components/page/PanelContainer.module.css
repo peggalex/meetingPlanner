@@ -1,0 +1,28 @@
+.panelContainer {
+	background-color: white;
+	padding: 1.15rem;
+	position: relative;
+	border-radius: 10px;
+}
+
+.panelContainer[data-fullwidth="false"] {
+	align-self: flex-start;
+}
+
+.panelContainer > p {
+	position: absolute;
+	top: -0.75rem;
+	left: 1rem;
+	font-variation-settings: "wght" 600;
+	color: var(--slate400);
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+.panelContainer > div {
+	margin-top: 0.5rem;
+}
+
+.panelContainer > div > * + * {
+	margin-top: 1.15rem;
+}

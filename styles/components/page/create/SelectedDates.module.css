@@ -1,0 +1,46 @@
+.dateGroup {
+	background-color: var(--sky50);
+	padding: 0.5rem;
+	margin: 0.5rem;
+	border-radius: 5px;
+}
+
+.dateGroup > p {
+	margin: 0;
+	margin-bottom: 0.5rem;
+	font-size: 0.9rem;
+}
+
+.dateGroupMonth,
+.dateGroupYear {
+	font-variation-settings: "wght" 600;
+}
+
+.dateGroupMonth {
+	color: var(--slate600);
+}
+
+.dateGroupYear {
+	color: var(--slate400);
+}
+
+.dateGroupsContainer {
+	margin-left: -0.5rem;
+	margin-top: -0.5rem;
+}
+
+.dateGroup button {
+	margin: 0.25rem;
+}
+
+.datesContainer,
+.dateGroupsContainer {
+	margin: -0.25rem;
+	flex-wrap: wrap;
+}
+
+.noDatesMsg {
+	margin: 0;
+	font-variation-settings: "wght" 700;
+	color: var(--slate500);
+}

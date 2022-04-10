@@ -1,0 +1,21 @@
+.meetingRouting {
+	background-color: white;
+	padding: 0.5rem;
+	border-radius: 5px;
+	font-variation-settings: "wght" 600;
+	color: var(--slate600);
+	width: 50%;
+	text-align: center;
+	margin-top: -1rem;
+	cursor: pointer;
+	border: none;
+}
+
+.meetingRouting + .meetingRouting {
+	margin-left: 0.5rem;
+}
+
+.meetingRouting[data-selected="true"] {
+	background-color: var(--sky400);
+	color: white;
+}

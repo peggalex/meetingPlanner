@@ -1,0 +1,40 @@
+.calendarTime {
+	height: 2.35rem;
+	width: 5rem;
+	user-select: none;
+}
+
+.calendarTime > div {
+	background-color: var(--sky100);
+	border-radius: 5px;
+	padding: 0.25rem;
+	height: 100%;
+}
+
+.calendarTime p {
+	margin: 0;
+}
+
+.time {
+	align-self: flex-end;
+}
+
+.calendarTime > div > p:nth-child(1) {
+	font-size: 0.55rem;
+	color: var(--slate500);
+	font-variation-settings: "wght" 500;
+}
+
+.calendarTime.dark > div > p:nth-child(1) {
+	color: var(--grey100);
+}
+
+.calendarTime > div > p:nth-child(2) {
+	font-variation-settings: "wght" 600;
+	color: var(--slate600);
+	font-size: 0.8rem;
+}
+
+.calendarTime.dark > div > p:nth-child(2) {
+	color: white;
+}

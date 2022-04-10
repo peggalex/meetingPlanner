@@ -1,0 +1,27 @@
+.mainPanel {
+	width: min(90vw, 1200px);
+	background-color: white;
+	border: solid 0.35rem var(--slate400);
+	border-radius: 10px;
+	margin-bottom: 1.5rem;
+}
+
+.sidePanel {
+	background-color: var(--slate100);
+	padding: 1.5rem;
+	width: 26rem;
+}
+
+.sidePanel > * + * {
+	margin-top: 2rem;
+}
+
+@media only screen and (max-width: 600px){
+	.mainPanel {
+		flex-direction: column-reverse;
+	}
+
+	.sidePanel {
+		width: 100%;
+	}
+}

@@ -1,0 +1,28 @@
+.calendarDay + .calendarDay {
+	margin-left: 0.5rem;
+}
+
+.calendarDayHeader {
+	user-select: none;
+	padding: 0.25rem;
+}
+
+.calendarDayHeader > p {
+	margin: 0;
+}
+
+.calendarDayHeader > p:nth-child(1) {
+	font-size: 0.65rem;
+	color: var(--slate300);
+	font-variation-settings: "wght" 500;
+}
+
+.calendarDayHeader > p:nth-child(2) {
+	font-size: 0.85rem;
+	color: var(--slate500);
+	font-variation-settings: "wght" 600;
+}
+
+.calendarDayTimes > * + * {
+	margin-top: 0.5rem;
+}

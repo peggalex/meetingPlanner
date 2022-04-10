@@ -1,0 +1,3 @@
+.selectedCellWrapper[data-selected="true"] > div > div {
+	outline: 2px solid var(--sky500);
+}

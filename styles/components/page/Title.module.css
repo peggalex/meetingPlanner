@@ -1,0 +1,41 @@
+.title {
+	position: relative;
+	background-color: var(--slate100);
+	padding: 1.5rem;
+	padding-top: 1rem;
+	width: min(90vw, 1250px);
+	border-radius: 20px;
+}
+
+.title p {
+	color: var(--slate400);
+	position: absolute;
+	top: -0.75rem;
+	left: 1.25rem;
+	font-variation-settings: "wght" 600;
+	font-size: 1.25rem;
+	margin: 0;
+}
+
+.title h2,
+.title input {
+	font-size: 2rem;
+	color: var(--slate600);
+	margin: 0;
+	font-weight: normal;
+	font-variation-settings: "wght" 700;
+	display: inline;
+	background-color: transparent;
+	outline: none;
+	border: none;
+	border-bottom: solid var(--sky200);
+}
+
+.title input {
+	width: 100%;
+}
+
+.title input::placeholder {
+	color: var(--slate400);
+	font-style: italic;
+}

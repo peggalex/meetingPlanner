@@ -1,0 +1,28 @@
+.dayRun {
+	align-items: flex-start;
+	padding: 2px;
+}
+
+.runSeparator {
+	padding: 0.2rem;
+	margin: 0.75rem;
+	margin-top: calc(2.75rem + 5%);
+	margin-bottom: 5%;
+	background-color: var(--slate200);
+	border-radius: 0.25rem;
+}
+
+.calendar {
+	margin: 2.5vmin;
+	overflow-x: auto;
+	overflow-y: visible;
+	width: auto;
+	align-items: flex-start;
+}
+
+
+@media only screen and (max-width: 600px){
+	.calendar {
+		justify-content: center;
+	}
+}

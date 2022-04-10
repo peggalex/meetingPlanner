@@ -1,0 +1,13 @@
+.addBtn {
+	background-color: var(--sky);
+	padding: 0.6rem;
+	padding-right: 1rem;
+	border: none;
+	color: white;
+	border-radius: 5px;
+	font-variation-settings: "wght" 700;
+	font-size: 1rem;
+	text-align: center;
+	width: 6.25rem;
+	caret-color: transparent;
+}

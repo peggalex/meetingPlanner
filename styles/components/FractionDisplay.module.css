@@ -1,0 +1,21 @@
+.fractionDisplay {
+	font-variation-settings: "wght" 700;
+	color: var(--slate600);
+	margin: 0 0.5rem;
+	margin-top: -1.25rem;
+	margin-bottom: -0.75rem;
+	width: 6rem;
+	align-items: baseline;
+}
+
+.fractionDisplay > span:nth-child(1) {
+	font-size: 4rem;
+}
+
+.fractionDisplay > span:nth-child(2) {
+	font-size: 2rem;
+}
+
+.fractionDisplay > span:nth-child(2)::before {
+	content: "/";
+}

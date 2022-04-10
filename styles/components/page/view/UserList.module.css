@@ -1,0 +1,33 @@
+.userList {
+	background-color: var(--sky50);
+	border-radius: 5px;
+	padding: 0.25rem 0.5rem;
+}
+
+.noUsersMsg {
+	margin: 0;
+	font-variation-settings: "wght" 700;
+	color: var(--slate500);
+	font-style: italic;
+}
+
+.userList p {
+	margin: 0;
+	font-variation-settings: "wght" 600;
+	color: var(--slate600);
+}
+
+.userList + .userList {
+	margin-top: 0.5rem !important;
+}
+
+.userList svg {
+	width: 1.15rem;
+	color: var(--slate400);
+	stroke-width: 2px;
+	margin-right: 0.4rem;
+}
+
+.userList > p {
+	color: var(--sky500);
+}

@@ -1,0 +1,49 @@
+.accordion {
+    background-color: var(--sky100);
+    border-radius: 5px;
+    color: var(--grey600);
+    padding: 0.25rem;
+}
+
+.accordionHeader {
+    width: 100%;
+}
+
+.accordionHeader p {
+    margin: 0;
+}
+
+.accordion button {
+    background-color: transparent;
+    border: none;
+    margin-left: auto;
+}
+
+.headerTitle {
+	font-variation-settings: "wght" 700;
+}
+
+.accordionHeader .headerCount {
+    margin-left: .4rem;
+    color: var(--grey400);
+}
+
+.accordion button > svg { 
+    height: 1.5rem;
+    color: var(--grey600);
+}
+
+.accordionContent {
+    margin-left: 0.5rem;
+}
+
+.accordionContent > p {
+    margin: 0.25rem;
+    color: var(--grey500);
+}
+
+.iconContainer, .iconContainer > svg {
+    height: 1rem;
+    stroke-width: 2.5px;
+    margin-right: 0.05rem;
+}
