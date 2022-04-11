@@ -17,7 +17,7 @@ const Accordion = ({icon, title, people}: {icon: JSX.Element, title: string, peo
             <p className={styles.headerTitle}>{title} </p>
             <p className={styles.headerCount}>• {people.length}</p>
             <button>
-                {isClosed ? Icons.down : Icons.up}
+                {isClosed ? Icons.up : Icons.down}
             </button>
         </div>
         {isClosed && <div className={styles.accordionContent}>{people.length === 0 ? <p><i>no {title} users</i></p>: people.map(p => <Person name={p} key={p}/>)}</div>}

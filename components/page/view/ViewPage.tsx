@@ -12,6 +12,7 @@ import SelectedDateTime from "./SelectedDateTime"
 import Accordion from "../Accordion"
 import PanelContainer from "../PanelContainer"
 import ShareButton from "../ShareButton"
+import PeopleAccordionsPanel from "./PeopleAccordionsPanel"
 
 const SelectTimeWrapperNotEdit: CalendarCellWrapperType = ({title, year, month, day, timeMinutes, children}) => {
 	  
@@ -28,7 +29,7 @@ const SelectTimeWrapperNotEdit: CalendarCellWrapperType = ({title, year, month, 
 
 const ViewPageWrapped = () => {
 
-    const { userToHasPassword, totalUsers } = useContext(MeetingContext);
+    const { totalUsers } = useContext(MeetingContext);
     const { hasSelectedTime, selectedTime } = useContext(SelectedTimeContext);
 
     return <Page CalendarCellWrapper={SelectTimeWrapperNotEdit} sidePanelElement={<>
@@ -38,14 +39,7 @@ const ViewPageWrapped = () => {
             <SelectedDateTime/>
             <FractionDisplay title="available" numerator={selectedTime!.available.length} denominator={totalUsers}/>
         </>}
-        {hasSelectedTime ? <PanelContainer title='people'>
-            <Accordion icon={Icons.check} title='available' people={selectedTime?.available || []}/>
-            <Accordion icon={Icons.cross} title='unavailable' people={
-                Object.keys(userToHasPassword).filter(
-                    u => !(selectedTime?.available || []).includes(u)
-                )  || []
-            }/>
-        </PanelContainer> : <UserList/>}
+        {hasSelectedTime ? <PeopleAccordionsPanel/> : <UserList/>}
     </>}/>
 }
 

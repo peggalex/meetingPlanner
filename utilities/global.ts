@@ -107,4 +107,12 @@ export type CalendarCellWrapperType = React.FC<{
     timeMinutes: number, 
     children: any
   }>;
-  
+
+const minChars = 2;
+const TextInputRegex = `^[0-9a-zA-Z _\\-']{${minChars},}$`;
+const RegexExplaination = (CapsFieldName: string) => `${CapsFieldName} is invalid, please only use alphanumeric characters, or: [single quote, space, underscore, dash]. Minimum characters: ${minChars}`;
+
+export const UsernameRegex = TextInputRegex;
+export const UsernameRegexExplaination = RegexExplaination('Username');
+
+export const HexRegex = /[0-9a-fA-F]+/;

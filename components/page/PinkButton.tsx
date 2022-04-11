@@ -1,7 +1,7 @@
 import styles from "../../styles/components/page/PinkButton.module.css";
 import globalStyles from "../../styles/global.module.css";
 import { getClassName } from "../../utilities/global";
-import { useCallback, useEffect, useRef } from "react";
+import { useCallback, useRef } from "react";
 
 const PinkButton = (
     {text, icon, title, onClick, isDisabled }: 

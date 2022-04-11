@@ -3,7 +3,7 @@ import { MeetingDay } from '../../utilities/types/sharedTypes';
 import { updateMeeting } from '../../utilities/serverOnly/database';
 import { handleAPIError, RestError } from '../../utilities/serverOnly/RestError';
 import { UpdateMeetingRequest } from '../../utilities/types/requestTypes';
-import { handleOkResponse, validateAuthenticatedRequest } from '../../utilities/serverOnly/serverOnlyUtilities';
+import { handleOkResponse, validateAuthenticatedRequest, validateUser } from '../../utilities/serverOnly/serverOnlyUtilities';
 import { FailableResponse } from '../../utilities/types/responseTypes';
 
 export default async function handler(
@@ -68,5 +68,5 @@ export default async function handler(
 }
 
 const validateUpdateRequest = (meetingReq: UpdateMeetingRequest, dbMeeting: Array<MeetingDay>) => {
-  //pass
+  validateUser(meetingReq.userAuth);
 }

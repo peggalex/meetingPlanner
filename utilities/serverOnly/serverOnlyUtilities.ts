@@ -1,4 +1,5 @@
 import { NextApiResponse } from "next";
+import { HexRegex, UsernameRegex } from "../global";
 import { DatabaseMeeting } from "../types/databaseTypes";
 import { UserAuth } from "../types/requestTypes";
 import { FailableResponse, GetMeetingResponse } from "../types/responseTypes";
@@ -17,7 +18,7 @@ export const dbToMeetingResponse = ({ meeting, userToPasswordHash }: DatabaseMee
 
 export const findUserPassword = (userToPasswordHash: {[username: string]: string | null}, name: string): string | null | undefined => {
     const usernames = Object.keys(userToPasswordHash);
-    const existingUsername = usernames.find(n => n.toLowerCase() === name.toLocaleLowerCase());
+    const existingUsername = usernames.find(n => n.toLowerCase() === name.toLowerCase());
     if (existingUsername === undefined) return;
 
     return userToPasswordHash[existingUsername!];
@@ -31,7 +32,7 @@ export const validateMeetingId = async (meetingId: string): Promise<DatabaseMeet
     return dbMeeting;
 }
 
-export const validateAuthenticatedRequest = async ({ username, passwordHash, meetingId }: UserAuth) => {
+export const validateAuthenticatedRequest = async ({ username, passwordHash, meetingId }: UserAuth): Promise<DatabaseMeeting> => {
 
     const dbMeeting = await validateMeetingId(meetingId);
 
@@ -52,8 +53,17 @@ export const validateAuthenticatedRequest = async ({ username, passwordHash, mee
 }
 
 export function handleOkResponse<T extends FailableResponse>(res: NextApiResponse, json: T, statusCode: 200|201 = 200) {
-    return (res as NextApiResponse<T>).status(statusCode).json({ 
+    (res as NextApiResponse<T>).status(statusCode).json({ 
         ...(JSON.parse(JSON.stringify(json)) as T),
         failed: false,
     });
+}
+
+export const validateUser = ({ username, passwordHash }: UserAuth) => {
+  if (!username.match(UsernameRegex)){
+    throw new RestError(`Invalid username '${username}' (does not match regex).`, 500);
+  }
+  if (passwordHash != null && !passwordHash.match(HexRegex)){
+    throw new RestError(`Invalid password hash (should be hexadecimal).`, 500);
+  }
 }

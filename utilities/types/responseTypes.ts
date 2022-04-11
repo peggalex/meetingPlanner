@@ -5,6 +5,10 @@ export type FailableResponse = {
     errorMessage?: string;
 }
 
+export type AuthenticateResponse =  FailableResponse & {
+    correctCaseUsername: string;
+}
+
 export type GetMeetingResponse = FailableResponse & {
     meeting: Meeting;
     userToHasPassword: {[username: string]: boolean};

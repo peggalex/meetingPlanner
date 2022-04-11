@@ -6,7 +6,6 @@ import MeetingContext from '../../utilities/MeetingContext';
 
 
 function hexToRgb(hex: string): number[] {
-    console.log({hex, hi: 'bye'});
     const normal = hex.match(/^#([0-9a-f]{2})([0-9a-f]{2})([0-9a-f]{2})$/i);
     return normal!.slice(1).map(e => parseInt(e, 16));
 }
@@ -25,14 +24,16 @@ const CalendarTime = ({dateStr, minutes, isEmpty}: {dateStr: string, minutes: nu
         [dateStr, minutes, sortedDates]
     );
 	const opacity = useMemo(
-        () => totalUsers === 0 ? 1 : minPercent+((1-minPercent)*(timeObj?.available?.length ?? 0) / totalUsers), 
+        () => {
+            if (totalUsers === 0) return 1;
+            const noAvailable = timeObj?.available?.length ?? 0;
+            const percentAvailable = noAvailable / totalUsers;
+            return minPercent+((1-minPercent)*percentAvailable);
+        }, 
         [totalUsers, timeObj]
     );
 
     const backgroundColor = useMemo(() => `rgb${colors[99-Math.round(opacity*99)]}`, [opacity]);
-    useEffect(() => {
-        console.log({backgroundColor});
-    }, [backgroundColor]);
  
     const isDark = false;
     const displayTime = useMemo(() => getDisplayTime(minutes), [minutes]);

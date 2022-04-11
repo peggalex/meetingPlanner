@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { connectToDB, getMongoId } from '../../utilities/serverOnly/database';
-import { handleAPIError } from '../../utilities/serverOnly/RestError';
+import { handleAPIError, RestError } from '../../utilities/serverOnly/RestError';
 import { CreateMeetingRequest } from '../../utilities/types/requestTypes';
 import { DatabaseMeeting } from '../../utilities/types/databaseTypes';
 import { ObjectId } from 'mongodb';
@@ -32,5 +32,9 @@ export default async function handler(
 }
 
 const validateMeeting = (meetingReq: CreateMeetingRequest) => {
-  //pass
+  const isValidURIEncoding = (str: string) => true;
+  const title = meetingReq.meeting.title;
+  if (!isValidURIEncoding(title)){
+    throw new RestError(`Invalid title '${title}' (expected URI encoded title).`, 500);
+  }
 }

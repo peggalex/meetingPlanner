@@ -1,5 +1,5 @@
 import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { getClassName } from "../../../utilities/global";
+import { getClassName, UsernameRegex, UsernameRegexExplaination } from "../../../utilities/global";
 import Icons from "../../../utilities/icons"
 import { UserAuth } from "../../../utilities/types/requestTypes";
 
@@ -36,6 +36,11 @@ const SigninLogin = ()  => {
             submitRef?.current?.reportValidity?.();
             return;
         }
+        if (!username.match(UsernameRegex)){
+            submitRef?.current?.setCustomValidity?.(UsernameRegexExplaination);
+            submitRef?.current?.reportValidity?.();
+            return;
+        }
 
         if (Object.keys(userToHasPassword).map(u => u.toLowerCase()).includes(username.toLowerCase())){
             if (!confirm("This is an existing user, are you trying to login?")) return;
@@ -48,9 +53,10 @@ const SigninLogin = ()  => {
     }, [_userAuth, login, signup, userToHasPassword, username]);
 
     return <div data-loggedIn={isLoggedIn} className={getClassName(globalStyles.centerCross, styles.signinLogin)}>
-        <input type="text" value={username ?? ""} onChange={(e) => setUsername(e.target.value)} disabled={isLoggedIn} placeholder="username"/>
-        <input type="submit" ref={submitRef} value=""/>
-        <div className={styles.signinLoginIconContainer} onClick={isLoggedIn ? logout : signupLogin} title={isLoggedIn ? "Logout" : "Sign in / Log in"}>
+        <p  className={styles.title}>{isLoggedIn ? "signed in" : "sign in"}</p>
+        <input type="text" value={username ?? ""} onChange={(e) => setUsername(e.target.value)} disabled={isLoggedIn} placeholder="username" pattern={UsernameRegex}/>
+        <input type="submit" ref={submitRef} onClick={isLoggedIn ? logout : signupLogin} value=""/>
+        <div className={styles.signinLoginIconContainer} onClick={isLoggedIn ? logout : signupLogin} title={isLoggedIn ? "Sign Out" : "Login / Sign up"}>
             {isLoggedIn ? Icons.logout : Icons.signinLogin}
         </div>
     </div>

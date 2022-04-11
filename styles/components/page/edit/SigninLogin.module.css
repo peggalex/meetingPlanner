@@ -1,34 +1,36 @@
 .signinLogin {
 	position: relative;
+	--submitBtnLen: 4rem;
 }
 
 .signinLogin[data-loggedin="true"] input[type="text"] {
-	background-color: var(--slate300);
+	background-color: var(--slate200);
 }
 
 .signinLogin input[type="text"] {
-	border-radius: 5px 0 0 5px;
+	border-radius: 10px 0 0 10px;
 	border: none;
-	padding: 0.5rem;
-	padding-left: 0.75rem;
+    padding: 1rem;
+	padding-left: 1rem;
 	background-color: white;
 	font-size: 1.5rem;
 	color: var(--slate600);
 	font-variation-settings: "wght" 600;
-	width: 80%;
+	width: calc(100% - var(--submitBtnLen));
+	outline: none;
 }
 
 .signinLogin input[type="text"]::placeholder {
-	color: var(--slate400);
+	color: var(--slate200);
 	font-style: italic;
 }
 
 .signinLogin input[type="submit"] {
 	border: none;
-	width: 20%;
-	border-radius: 0 5px 5px 0;
+	width: var(--submitBtnLen);
+	border-radius: 0 10px 10px 0;
 	background-color: var(--sky100);
-	padding: 0.5rem;
+	padding: 1rem;
 	font-size: 1.5rem;
 }
 
@@ -36,10 +38,28 @@
 	position: absolute;
 	right: 0;
 	top: 0;
-	padding-top: 5%;
-	padding-left: 4.5%;
-	width: 20%;
+	padding-top: 1.2rem;
+    padding-right: 1.2rem;
 	color: var(--sky500);
 	cursor: pointer;
 	height: 100%;
+}
+
+.signinLogin[data-loggedin="false"] .signinLoginIconContainer {
+    padding-right: 1.4rem;
+}
+
+.title {
+    position: absolute;
+    top: -0.75rem;
+    left: 1rem;
+    font-variation-settings: "wght" 600;
+    color: var(--slate400);
+    font-size: 1.25rem;
+    margin: 0;
+}
+
+.signinLogin svg {
+	/*height: 1.65rem;
+    width: 1.65rem;*/
 }

@@ -9,6 +9,7 @@
 	margin-top: -1rem;
 	cursor: pointer;
 	border: none;
+	font-size: 1.2rem;
 }
 
 .meetingRouting + .meetingRouting {
