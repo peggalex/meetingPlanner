@@ -9,6 +9,7 @@
 .sidePanel {
 	background-color: var(--slate100);
 	padding: 1.5rem;
+	min-width: 26rem;
 	width: 26rem;
 }
 

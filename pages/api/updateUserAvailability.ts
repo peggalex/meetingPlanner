@@ -14,8 +14,10 @@ export default async function handler(
 	try {
 		const meetingReq = JSON.parse(req.body) as UpdateMeetingRequest;
 		const { sortedDates: userSortedDates, userAuth } = meetingReq;
-		const username = userAuth.username.toLowerCase();
 
+		validateUser(meetingReq.userAuth);
+
+		const username = userAuth.username.toLowerCase();
 		const dbMeeting = await validateAuthenticatedRequest(userAuth);
 		const { meeting: { sortedDates: dbSortedDates } } = dbMeeting;
 		validateUpdateRequest(meetingReq, dbSortedDates);
@@ -68,5 +70,5 @@ export default async function handler(
 }
 
 const validateUpdateRequest = (meetingReq: UpdateMeetingRequest, dbMeeting: Array<MeetingDay>) => {
-  validateUser(meetingReq.userAuth);
+  // pass
 }
