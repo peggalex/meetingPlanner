@@ -2,7 +2,7 @@ import { createContext, useCallback, useContext, useEffect, useMemo, useState } 
 import MeetingContext from "./MeetingContext";
 import { dateToStr, makeRequest, minutesToTime, ScheduleDay, strToDate, timeToMinutes } from "./global";
 import { UserAuth } from "./types/requestTypes";
-import { FailableResponse } from "./types/responseTypes";
+import { AuthenticateResponse, FailableResponse } from "./types/responseTypes";
 import { MeetingDay } from "./types/sharedTypes";
 
 const UserContext = createContext({} as { 
@@ -165,10 +165,11 @@ export const UserContextProvider = ({meetingId, sortedDates, loadUserUpdate, chi
 
     const login = useCallback(async (existingUserAuth: UserAuth) => {
         
-        const [res, isOk, status] = await makeRequest<FailableResponse>("/api/authenticate", existingUserAuth);
+        const [res, isOk, status] = await makeRequest<AuthenticateResponse>("/api/authenticate", existingUserAuth);
         
         if (isOk){
-            console.log('setting user auth', existingUserAuth);
+            const { correctCaseUsername } = res!;
+            existingUserAuth.username = correctCaseUsername;
             setUserAuth(existingUserAuth);
         } else {
             switch(status){
