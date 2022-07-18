@@ -4,7 +4,6 @@ import { getDbMeeting } from '../../utilities/serverOnly/database';
 import { RestError, handleAPIError } from '../../utilities/serverOnly/RestError';
 import { handleOkResponse, validateAuthenticatedRequest, validateUser } from '../../utilities/serverOnly/serverOnlyUtilities';
 import { AuthenticateResponse } from '../../utilities/types/responseTypes';
-import { HexRegex, UsernameRegex } from '../../utilities/global';
 
 export default async function handler(
   req: NextApiRequest,

@@ -4,7 +4,7 @@ import DateTimePicker from '../components/page/create/DateTimePicker';
 import SelectedDates from '../components/page/create/SelectedDates';
 import Page from '../components/page/Page';
 import PinkButton from '../components/page/PinkButton';
-import {CalendarCellWrapperType, dateToStr, makeRequest, MeetingDays, ScheduleDay, ScheduleDays, timeToMinutes, TitleRegex, TitleRegexExplaination } from '../utilities/global';
+import {CalendarCellWrapperType, dateToStr, makeRequest, MeetingDays, timeToMinutes } from '../utilities/global';
 import { Calendar, CalendarMonth } from '../utilities/home';
 import Icons from '../utilities/icons';
 
