@@ -2,7 +2,7 @@ import Title from "./Title";
 import MainPanel from "./MainPanel";
 
 import globalStyles from "../../styles/global.module.css";
-import styles from "../../styles/components/page/page.module.css";
+import styles from "../../styles/components/page/Page.module.css";
 import Icons from "../../utilities/icons";
 import { createContext, useMemo } from "react";
 import { CalendarCellWrapperType, getClassName } from "../../utilities/global";
