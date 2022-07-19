@@ -6,7 +6,6 @@ const basePath = isProd ? '/meetingPlanner' : '';
 const nextConfig = {
   reactStrictMode: true,
   assetPrefix: basePath,
-  basePath,
   env: {
     basePath,
   },
