@@ -85,18 +85,26 @@ export const setValidationMsg = (ref: MutableRefObject<any>, message: string) =>
 
 export const clearValidationMsg = (ref: MutableRefObject<any>) => setValidationMsg(ref, "");
 
-const _makeRequest = (url: string, json?: any) => fetch(url, {
-    method: json == null ? "GET" : "POST",
-    body: JSON.stringify(json ?? {})
-})
+export const redirect = (path: string) => {
+    window.location.href = `${process.env.basePath}/${path}`;
+}
+
+const _makeRequest = (url: string, json?: any) => fetch(
+    process.env.basePath + url, 
+    {
+        method: json == null ? "GET" : "POST",
+        body: json == null ? undefined : JSON.stringify(json)
+    }
+)
 
 export async function makeRequest<TResponse>(url: string, json?: any): Promise<[TResponse|undefined, boolean, number]> {
     const res = await _makeRequest(url, json);
     let resJson: TResponse | undefined = undefined;
     try {
         resJson = await res.json() as TResponse;
-    } catch {}
-    return [resJson, res.ok, res.status];
+    } finally {
+        return [resJson, res.ok, res.status];
+    }
 };
 
 export type CalendarCellWrapperType = React.FC<{

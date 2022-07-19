@@ -4,7 +4,7 @@ import DateTimePicker from '../components/page/create/DateTimePicker';
 import SelectedDates from '../components/page/create/SelectedDates';
 import Page from '../components/page/Page';
 import PinkButton from '../components/page/PinkButton';
-import {CalendarCellWrapperType, dateToStr, makeRequest, MeetingDays, timeToMinutes } from '../utilities/global';
+import {CalendarCellWrapperType, dateToStr, makeRequest, MeetingDays, timeToMinutes, redirect } from '../utilities/global';
 import { Calendar, CalendarMonth } from '../utilities/home';
 import Icons from '../utilities/icons';
 
@@ -108,7 +108,7 @@ const HomeWithContext = ({calendar}: {calendar: Calendar}) => {
 
       const [res, isOk] = await makeRequest<CreateMeetingResponse>("/api/addNewMeeting", meetingReq);
       if (!isOk) throw Error(res?.errorMessage);
-      window.location.href = `/meeting/${res!.meetingId}`;
+      redirect(`/meeting/${res!.meetingId}`);
       
     }} title="Create new meeting" isDisabled={false}/>
     <SelectedDates/>

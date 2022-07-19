@@ -1,6 +1,6 @@
 import { useRouter } from 'next/router'
 import { useCallback, useContext, useEffect, useMemo, useState } from 'react';
-import { MeetingDays } from '../../utilities/global';
+import { makeRequest, MeetingDays } from '../../utilities/global';
 import { Meeting, MeetingDay } from '../../utilities/types/sharedTypes';
 import MeetingContext, { MeetingContextProvider } from '../../utilities/MeetingContext';
 import { GetMeetingResponse } from '../../utilities/types/responseTypes';
@@ -34,8 +34,12 @@ const MeetingPlanner = () => {
     
     const updateMeeting = useCallback(async () => {
       if (!meetingId) return;
-      const meetingRes: GetMeetingResponse = await (await fetch(`/api/meeting/${meetingId}`)).json();
-      setMeetingRes(meetingRes);
+      const [meetingRes, isOk, status] = await makeRequest<GetMeetingResponse>(`/api/meeting/${meetingId}`);
+      if (isOk){
+        setMeetingRes(meetingRes!);
+      } else {
+        throw new Error(`API to update meeting failed with status code ${status}`);
+      }
     }, [meetingId]);
 
     useEffect(() => {
