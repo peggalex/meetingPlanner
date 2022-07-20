@@ -23,6 +23,13 @@
 	font-variation-settings: "wght" 600;
 }
 
+.calendarDayHeader > p:nth-child(3) {
+    font-size: 0.75rem;
+    color: var(--slate400);
+    font-variation-settings: "wght" 600;
+    text-transform: capitalize;
+}
+
 .calendarDayTimes > * + * {
 	margin-top: 0.5rem;
 }

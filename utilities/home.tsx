@@ -7,4 +7,5 @@ export type CalendarYear = {
   
 export type Calendar = Array<CalendarYear>;
 
-export const Weekdays = ["sun", "mon", "tue", "wed", "thu", "fri", "sat"];
+export const WeekdaysFull = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
+export const Weekdays = WeekdaysFull.map(s => s.substring(0,3));

@@ -7,6 +7,7 @@ import MeetingContext from "../../utilities/MeetingContext";
 import styles from '../../styles/components/calendar/CalendarDay.module.css';
 import globalStyles from '../../styles/global.module.css';
 import { CalendarCellWrapperContext } from "../page/Page";
+import { WeekdaysFull } from "../../utilities/home";
 
 const CalendarDay = ({day: {date, times}}: {day: ScheduleDay}) => {
 
@@ -40,10 +41,13 @@ const CalendarDay = ({day: {date, times}}: {day: ScheduleDay}) => {
         return newTimeElements;
     }, [earliestTime, latestTime, times, CalendarCellWrapper, y, m, d, date]);
 
+    const dayOfWeek = useMemo(() => WeekdaysFull[strToDate(date).getDay()], [date]);
+
     return <div className={getClassName(styles.calendarDay, globalStyles.col)}>
         <div className={styles.calendarDayHeader}>
             <p>{y}</p>
             <p>{getMonth(m, true)} {getDayStr(d)}</p>
+            <p>{dayOfWeek}</p>
         </div>
         <div className={styles.calendarDayTimes}>
             {timeElements}
