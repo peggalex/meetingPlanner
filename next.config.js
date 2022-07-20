@@ -10,9 +10,6 @@ const nextConfig = {
   env: {
     basePath,
   },
-  async redirects() {
-    return [];
-  },
 }
 
 module.exports = nextConfig;
