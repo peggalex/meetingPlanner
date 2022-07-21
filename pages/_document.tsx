@@ -4,7 +4,7 @@ export default function Document() {
     return (
         <Html>
             <Head>
-                <link rel="shortcut icon" href="/favicon.ico" />
+                <link rel="shortcut icon" href={`${process.env.basePath}/favicon.ico`} />
             </Head>
             <body>
                 <Main />
